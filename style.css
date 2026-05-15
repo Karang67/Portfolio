@@ -338,3 +338,161 @@ nav a{
     }
     
 }
+
+/* ===== Responsive Improvements ===== */
+
+html{
+    scroll-behavior: smooth;
+}
+
+img{
+    max-width: 100%;
+}
+
+.main-container{
+    width: 100%;
+    padding: 30px 20px;
+}
+
+.main-content,
+.sidebar{
+    width: 100%;
+}
+
+.contact{
+    word-break: break-word;
+}
+
+#navigation nav{
+    flex-wrap: wrap;
+}
+
+/* Tablet */
+@media screen and (max-width: 992px) {
+
+    .main-container{
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .sidebar{
+        position: static;
+        height: auto;
+        padding: 30px 20px;
+    }
+
+    .main-content{
+        padding: 30px 20px;
+    }
+
+    nav{
+        justify-content: center;
+    }
+
+    .project-container{
+        grid-template-columns: 1fr;
+    }
+
+    .grid-container{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+
+    .main-container{
+        padding: 15px;
+    }
+
+    .sidebar,
+    .main-content{
+        padding: 20px 15px;
+        border-radius: 12px;
+    }
+
+    .profile img{
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile h2{
+        font-size: 1.3rem;
+    }
+
+    nav{
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav a{
+        font-size: 0.9rem;
+    }
+
+    .heading{
+        font-size: 1.5rem;
+    }
+
+    .content,
+    .work,
+    .card p{
+        text-align: left;
+    }
+
+    .grid-container{
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .item{
+        padding: 15px;
+    }
+
+    .project-container{
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .project img{
+        height: 200px;
+    }
+
+    .card{
+        padding: 15px;
+    }
+}
+
+/* Small Mobile */
+@media screen and (max-width: 480px) {
+
+    body{
+        font-size: 14px;
+    }
+
+    .main-container{
+        padding: 10px;
+    }
+
+    nav{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .grid-container{
+        grid-template-columns: 1fr;
+    }
+
+    .project img{
+        height: 170px;
+    }
+
+    .social a{
+        margin-right: 10px;
+    }
+
+    .card span{
+        display: inline-block;
+        margin-bottom: 8px;
+    }
+}
