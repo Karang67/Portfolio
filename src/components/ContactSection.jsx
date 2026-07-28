@@ -1,0 +1,214 @@
+import React, { useState } from 'react';
+import { Mail, Phone, MapPin, Send, Check, Copy, MessageSquare, Linkedin, Twitter } from 'lucide-react';
+
+const ContactSection = () => {
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('karangehlot5686@gmail.com');
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2500);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) return;
+    setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({ name: '', email: '', message: '' });
+    }, 4000);
+  };
+
+  return (
+    <section id="contact" className="py-8">
+      <div className="glass-card rounded-3xl p-6 sm:p-10 space-y-8">
+        <div>
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gold-400 mb-2">
+            <MessageSquare className="w-4 h-4" />
+            <span>Let's Connect</span>
+          </div>
+          <h2 className="text-3xl font-extrabold text-white tracking-tight">
+            Contact & Hire Me
+          </h2>
+          <div className="w-16 h-1 bg-gold-500 rounded-full mt-2" />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Direct Communication Channels */}
+          <div className="space-y-6">
+            <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+              I am currently open to fullstack development opportunities, freelance projects, and tech collaborations. Feel free to reach out via email, phone, LinkedIn, or X (Twitter)!
+            </p>
+
+            <div className="space-y-4">
+              {/* Email Card */}
+              <div className="p-4 rounded-2xl bg-dark-900/80 border border-gray-800 flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3 truncate">
+                  <div className="w-10 h-10 rounded-xl bg-dark-800 border border-gray-700 text-gold-400 flex items-center justify-center shrink-0">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div className="truncate">
+                    <span className="block text-[10px] uppercase font-bold text-gray-400 tracking-wider">Email Address</span>
+                    <a href="mailto:karangehlot5686@gmail.com" className="text-sm font-semibold text-white hover:text-gold-400 truncate block">
+                      karangehlot5686@gmail.com
+                    </a>
+                  </div>
+                </div>
+                <button
+                  onClick={handleCopyEmail}
+                  className="px-3 py-2 rounded-xl bg-dark-800 border border-gray-700 hover:border-gold-500 text-gray-300 hover:text-gold-400 text-xs font-semibold flex items-center gap-1.5 shrink-0 transition-all"
+                  title="Copy email to clipboard"
+                >
+                  {copiedEmail ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                  <span>{copiedEmail ? 'Copied!' : 'Copy'}</span>
+                </button>
+              </div>
+
+              {/* Phone Card */}
+              <div className="p-4 rounded-2xl bg-dark-900/80 border border-gray-800 flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-dark-800 border border-gray-700 text-gold-400 flex items-center justify-center shrink-0">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="block text-[10px] uppercase font-bold text-gray-400 tracking-wider">Phone / WhatsApp</span>
+                    <a href="tel:8949012308" className="text-sm font-semibold text-white hover:text-gold-400">
+                      +91 8949012308
+                    </a>
+                  </div>
+                </div>
+                <a
+                  href="tel:8949012308"
+                  className="px-3 py-2 rounded-xl bg-dark-800 border border-gray-700 hover:border-gold-500 text-gold-400 text-xs font-semibold shrink-0"
+                >
+                  Call Now
+                </a>
+              </div>
+
+              {/* LinkedIn Profile Card */}
+              <div className="p-4 rounded-2xl bg-dark-900/80 border border-gray-800 flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3 truncate">
+                  <div className="w-10 h-10 rounded-xl bg-dark-800 border border-gray-700 text-gold-400 flex items-center justify-center shrink-0">
+                    <Linkedin className="w-5 h-5" />
+                  </div>
+                  <div className="truncate">
+                    <span className="block text-[10px] uppercase font-bold text-gray-400 tracking-wider">LinkedIn Profile</span>
+                    <a href="https://www.linkedin.com/in/karan-gehlot-0025922b2/" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-white hover:text-gold-400 truncate block">
+                      karan-gehlot-0025922b2
+                    </a>
+                  </div>
+                </div>
+                <a
+                  href="https://www.linkedin.com/in/karan-gehlot-0025922b2/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-2 rounded-xl bg-dark-800 border border-gray-700 hover:border-gold-500 text-gold-400 text-xs font-semibold shrink-0 transition-all flex items-center gap-1"
+                >
+                  <span>Connect</span>
+                </a>
+              </div>
+
+              {/* X / Twitter Profile Card */}
+              <div className="p-4 rounded-2xl bg-dark-900/80 border border-gray-800 flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3 truncate">
+                  <div className="w-10 h-10 rounded-xl bg-dark-800 border border-gray-700 text-gold-400 flex items-center justify-center shrink-0">
+                    <Twitter className="w-5 h-5" />
+                  </div>
+                  <div className="truncate">
+                    <span className="block text-[10px] uppercase font-bold text-gray-400 tracking-wider">X (Twitter) Profile</span>
+                    <a href="https://x.com/karanGehlo24891" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-white hover:text-gold-400 truncate block">
+                      @karanGehlo24891
+                    </a>
+                  </div>
+                </div>
+                <a
+                  href="https://x.com/karanGehlo24891"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-2 rounded-xl bg-dark-800 border border-gray-700 hover:border-gold-500 text-gold-400 text-xs font-semibold shrink-0 transition-all flex items-center gap-1"
+                >
+                  <span>Follow</span>
+                </a>
+              </div>
+
+              {/* Location Card */}
+              <div className="p-4 rounded-2xl bg-dark-900/80 border border-gray-800 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-dark-800 border border-gray-700 text-gold-400 flex items-center justify-center shrink-0">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="block text-[10px] uppercase font-bold text-gray-400 tracking-wider">Location</span>
+                  <span className="text-sm font-semibold text-white">Vadodara, Vaghodia (Gujarat), India</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Interactive Form */}
+          <div className="p-6 rounded-2xl bg-dark-900/60 border border-gray-800">
+            {submitted ? (
+              <div className="h-full flex flex-col items-center justify-center text-center p-6 space-y-3">
+                <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center">
+                  <Check className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-bold text-white">Message Sent Successfully!</h3>
+                <p className="text-xs text-gray-400">Thank you for reaching out, Karan will get back to you shortly.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-400 mb-1">Your Name</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="Enter your name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-4 py-2.5 rounded-xl bg-dark-800 border border-gray-700 text-white placeholder-gray-500 text-xs focus:outline-none focus:border-gold-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-gray-400 mb-1">Email Address</label>
+                  <input
+                    type="email"
+                    required
+                    placeholder="name@company.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-4 py-2.5 rounded-xl bg-dark-800 border border-gray-700 text-white placeholder-gray-500 text-xs focus:outline-none focus:border-gold-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-gray-400 mb-1">Message</label>
+                  <textarea
+                    rows={4}
+                    required
+                    placeholder="Type your message or project opportunity details..."
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full px-4 py-2.5 rounded-xl bg-dark-800 border border-gray-700 text-white placeholder-gray-500 text-xs focus:outline-none focus:border-gold-500"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-dark-900 font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-gold-500/20 transition-all"
+                >
+                  <Send className="w-4 h-4" />
+                  <span>Send Direct Message</span>
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ContactSection;
