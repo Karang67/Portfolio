@@ -9,15 +9,15 @@ export const PROJECTS_DATA = [
     githubUrl: "https://github.com/Karang67/Campusgpt",
     liveUrl: "",
     imageUrl: "/campusgpt.png",
-    shortDesc: "Full-stack AI-powered university assistant built with React 19, TypeScript, Node.js, Express.js, MongoDB, and LangChain (RAG).",
+    shortDesc: "Full-stack AI-powered university assistant built with React 19, JavaScript, Node.js, Express.js, MongoDB, and LangChain (RAG).",
     fullOverview: "CampusGPT is an enterprise AI assistant designed for universities. Powered by LangChain and Retrieval-Augmented Generation (RAG), it delivers instant context-aware answers, PDF document chat, AI notes generation, and automated academic tools with role-based access control.",
     features: [
-      "Built with React 19, TypeScript, Node.js, Express.js, MongoDB, and LangChain with Retrieval-Augmented Generation (RAG).",
+      "Built with React 19, JavaScript, Node.js, Express.js, MongoDB, and LangChain with Retrieval-Augmented Generation (RAG).",
       "Multi-Role Authentication (Student, Faculty, HOD, Admin, Super Admin) with Role-Based Access Control (RBAC) and JWT authentication.",
       "AI Capabilities: Semantic search, OCR document processing, PDF chat, AI Notes Generator, Question Paper Generator, Attendance Advisor & Placement Assistant.",
       "Source-cited responses powered by vector database indexing."
     ],
-    techStack: ["React 19", "TypeScript", "Node.js", "Express.js", "MongoDB", "LangChain", "OpenAI API", "Tailwind CSS"]
+    techStack: ["React 19", "JavaScript", "Node.js", "Express.js", "MongoDB", "LangChain", "OpenAI API", "Tailwind CSS"]
   },
   {
     id: "anonhub",
@@ -49,14 +49,14 @@ export const PROJECTS_DATA = [
     githubUrl: "https://github.com/Karang67/Travel-Management",
     liveUrl: "",
     imageUrl: "/travel_management.png",
-    shortDesc: "Full-stack AI travel planning platform built with React 19, TypeScript, Node.js, Express.js, and MongoDB.",
+    shortDesc: "Full-stack AI travel planning platform built with React 19, JavaScript, Node.js, Express.js, and MongoDB.",
     fullOverview: "TraveLoop (Travel-Management) is a modern full-stack travel planning platform built for corporate travel coordination and trip scheduling. It features interactive UI animations built with Framer Motion, secure JWT authentication, input validation, and file uploads.",
     features: [
-      "Full-stack travel planning platform built using React 19, TypeScript, Node.js, Express.js, and MongoDB.",
+      "Full-stack travel planning platform built using React 19, JavaScript, Node.js, Express.js, and MongoDB.",
       "Responsive user interfaces designed with Tailwind CSS and Framer Motion for dynamic animations.",
       "Secure REST APIs with JWT authentication, input validation, file upload support, and expense tracking."
     ],
-    techStack: ["React 19", "TypeScript", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "Framer Motion", "JWT"]
+    techStack: ["React 19", "JavaScript", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "Framer Motion", "JWT"]
   },
   {
     id: "mega-blog",

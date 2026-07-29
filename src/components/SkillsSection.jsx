@@ -12,7 +12,7 @@ const SkillsSection = () => {
     {
       title: "Frontend Development",
       icon: Code2,
-      skills: ["HTML5", "CSS3", "React.js", "React 19", "TypeScript", "Tailwind CSS", "Bootstrap", "Responsive Web Design"]
+      skills: ["HTML5", "CSS3", "React.js", "React 19", "JavaScript (ES6+)", "Tailwind CSS", "Bootstrap", "Responsive Web Design"]
     },
     {
       title: "Backend & Real-Time APIs",
