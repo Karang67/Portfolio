@@ -114,21 +114,21 @@ const ContactSection = () => {
 
             <div className="space-y-4">
               {/* Email Card */}
-              <div className="p-4 rounded-2xl bg-dark-900/80 border border-gray-800 flex items-center justify-between gap-4">
-                <div className="flex items-center gap-3 truncate">
+              <div className="p-4 rounded-2xl bg-dark-900/80 border border-gray-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+                <div className="flex items-center gap-3 min-w-0">
                   <div className="w-10 h-10 rounded-xl bg-dark-800 border border-gray-700 text-gold-400 flex items-center justify-center shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
-                  <div className="truncate">
+                  <div className="min-w-0 truncate">
                     <span className="block text-[10px] uppercase font-bold text-gray-400 tracking-wider">Email Address</span>
-                    <a href="mailto:karangehlot5686@gmail.com" className="text-sm font-semibold text-white hover:text-gold-400 truncate block">
+                    <a href="mailto:karangehlot5686@gmail.com" className="text-xs sm:text-sm font-semibold text-white hover:text-gold-400 truncate block">
                       karangehlot5686@gmail.com
                     </a>
                   </div>
                 </div>
                 <button
                   onClick={handleCopyEmail}
-                  className="px-3 py-2 rounded-xl bg-dark-800 border border-gray-700 hover:border-gold-500 text-gray-300 hover:text-gold-400 text-xs font-semibold flex items-center gap-1.5 shrink-0 transition-all"
+                  className="w-full sm:w-auto px-3 py-2 rounded-xl bg-dark-800 border border-gray-700 hover:border-gold-500 text-gray-300 hover:text-gold-400 text-xs font-semibold flex items-center justify-center gap-1.5 shrink-0 transition-all"
                   title="Copy email to clipboard"
                 >
                   {copiedEmail ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
@@ -137,35 +137,35 @@ const ContactSection = () => {
               </div>
 
               {/* Phone Card */}
-              <div className="p-4 rounded-2xl bg-dark-900/80 border border-gray-800 flex items-center justify-between gap-4">
+              <div className="p-4 rounded-2xl bg-dark-900/80 border border-gray-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-dark-800 border border-gray-700 text-gold-400 flex items-center justify-center shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
                     <span className="block text-[10px] uppercase font-bold text-gray-400 tracking-wider">Phone / WhatsApp</span>
-                    <a href="tel:8949012308" className="text-sm font-semibold text-white hover:text-gold-400">
+                    <a href="tel:8949012308" className="text-xs sm:text-sm font-semibold text-white hover:text-gold-400">
                       +91 8949012308
                     </a>
                   </div>
                 </div>
                 <a
                   href="tel:8949012308"
-                  className="px-3 py-2 rounded-xl bg-dark-800 border border-gray-700 hover:border-gold-500 text-gold-400 text-xs font-semibold shrink-0"
+                  className="w-full sm:w-auto px-3 py-2 rounded-xl bg-dark-800 border border-gray-700 hover:border-gold-500 text-gold-400 text-xs font-semibold shrink-0 text-center"
                 >
                   Call Now
                 </a>
               </div>
 
               {/* LinkedIn Profile Card */}
-              <div className="p-4 rounded-2xl bg-dark-900/80 border border-gray-800 flex items-center justify-between gap-4">
-                <div className="flex items-center gap-3 truncate">
+              <div className="p-4 rounded-2xl bg-dark-900/80 border border-gray-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+                <div className="flex items-center gap-3 min-w-0">
                   <div className="w-10 h-10 rounded-xl bg-dark-800 border border-gray-700 text-gold-400 flex items-center justify-center shrink-0">
                     <Linkedin className="w-5 h-5" />
                   </div>
-                  <div className="truncate">
+                  <div className="min-w-0 truncate">
                     <span className="block text-[10px] uppercase font-bold text-gray-400 tracking-wider">LinkedIn Profile</span>
-                    <a href="https://www.linkedin.com/in/karan-gehlot-0025922b2/" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-white hover:text-gold-400 truncate block">
+                    <a href="https://www.linkedin.com/in/karan-gehlot-0025922b2/" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm font-semibold text-white hover:text-gold-400 truncate block">
                       karan-gehlot-0025922b2
                     </a>
                   </div>
@@ -174,21 +174,21 @@ const ContactSection = () => {
                   href="https://www.linkedin.com/in/karan-gehlot-0025922b2/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-2 rounded-xl bg-dark-800 border border-gray-700 hover:border-gold-500 text-gold-400 text-xs font-semibold shrink-0 transition-all flex items-center gap-1"
+                  className="w-full sm:w-auto px-3 py-2 rounded-xl bg-dark-800 border border-gray-700 hover:border-gold-500 text-gold-400 text-xs font-semibold shrink-0 transition-all flex items-center justify-center gap-1"
                 >
                   <span>Connect</span>
                 </a>
               </div>
 
               {/* X / Twitter Profile Card */}
-              <div className="p-4 rounded-2xl bg-dark-900/80 border border-gray-800 flex items-center justify-between gap-4">
-                <div className="flex items-center gap-3 truncate">
+              <div className="p-4 rounded-2xl bg-dark-900/80 border border-gray-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+                <div className="flex items-center gap-3 min-w-0">
                   <div className="w-10 h-10 rounded-xl bg-dark-800 border border-gray-700 text-gold-400 flex items-center justify-center shrink-0">
                     <Twitter className="w-5 h-5" />
                   </div>
-                  <div className="truncate">
+                  <div className="min-w-0 truncate">
                     <span className="block text-[10px] uppercase font-bold text-gray-400 tracking-wider">X (Twitter) Profile</span>
-                    <a href="https://x.com/karanGehlo24891" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-white hover:text-gold-400 truncate block">
+                    <a href="https://x.com/karanGehlo24891" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm font-semibold text-white hover:text-gold-400 truncate block">
                       @karanGehlo24891
                     </a>
                   </div>
@@ -197,7 +197,7 @@ const ContactSection = () => {
                   href="https://x.com/karanGehlo24891"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-2 rounded-xl bg-dark-800 border border-gray-700 hover:border-gold-500 text-gold-400 text-xs font-semibold shrink-0 transition-all flex items-center gap-1"
+                  className="w-full sm:w-auto px-3 py-2 rounded-xl bg-dark-800 border border-gray-700 hover:border-gold-500 text-gold-400 text-xs font-semibold shrink-0 transition-all flex items-center justify-center gap-1"
                 >
                   <span>Follow</span>
                 </a>

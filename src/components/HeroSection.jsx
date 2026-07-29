@@ -71,10 +71,10 @@ const HeroSection = ({ onOpenResume }) => {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
           <button
             onClick={onOpenResume}
-            className="px-6 py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-dark-900 font-bold text-sm flex items-center gap-2 shadow-lg shadow-gold-500/25 hover:shadow-gold-500/40 transition-all duration-300 cursor-pointer"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-dark-900 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-gold-500/25 hover:shadow-gold-500/40 transition-all duration-300 cursor-pointer"
           >
             <FileText className="w-4 h-4 text-dark-900" />
             <span>View CV / Resume</span>
@@ -82,7 +82,7 @@ const HeroSection = ({ onOpenResume }) => {
 
           <a
             href="#portfolio"
-            className="px-6 py-3 rounded-xl bg-dark-800 hover:bg-dark-700 text-white font-semibold text-sm border border-gray-700 hover:border-gold-500/50 transition-all duration-300 flex items-center gap-2"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-dark-800 hover:bg-dark-700 text-white font-semibold text-xs sm:text-sm border border-gray-700 hover:border-gold-500/50 transition-all duration-300 flex items-center justify-center gap-2"
           >
             <span>Explore Projects</span>
             <ArrowRight className="w-4 h-4 text-gold-400" />
@@ -90,7 +90,7 @@ const HeroSection = ({ onOpenResume }) => {
 
           <a
             href="#contact"
-            className="px-6 py-3 rounded-xl bg-dark-800 hover:bg-dark-700 text-white font-semibold text-sm border border-gray-700 hover:border-gold-500/50 transition-all duration-300 flex items-center gap-2"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-dark-800 hover:bg-dark-700 text-white font-semibold text-xs sm:text-sm border border-gray-700 hover:border-gold-500/50 transition-all duration-300 flex items-center justify-center gap-2"
           >
             <Send className="w-4 h-4 text-gold-400" />
             <span>Get In Touch</span>
