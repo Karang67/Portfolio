@@ -24,15 +24,15 @@ function App() {
       <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
 
       {/* Main Container */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 lg:pt-28 pb-12 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-8 items-start">
-          {/* Fixed Desktop Profile Sidebar (Only right main content scrolls) */}
-          <div className="w-full lg:w-[320px] shrink-0 lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 lg:pt-24 pb-6 relative z-10 lg:h-screen lg:overflow-hidden">
+        <div className="flex flex-col lg:flex-row gap-8 items-start lg:h-[calc(100vh-7.5rem)] lg:overflow-hidden">
+          {/* Fixed Profile Sidebar (Pinned on Desktop) */}
+          <div className="w-full lg:w-[320px] shrink-0 lg:h-full lg:overflow-y-auto">
             <Sidebar onOpenResume={() => setIsResumeModalOpen(true)} />
           </div>
 
-          {/* Main Content Area */}
-          <div className="flex-1 w-full space-y-4">
+          {/* Main Content Area (Only Right Column Scrolls on Desktop) */}
+          <div className="flex-1 w-full space-y-4 lg:h-full lg:overflow-y-auto pr-1 sm:pr-2">
             <HeroSection onOpenResume={() => setIsResumeModalOpen(true)} />
             <ProjectSection />
             <SkillsSection />
