@@ -6,7 +6,8 @@ const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '', honeypot: '' });
+  const [lastSubmitTime, setLastSubmitTime] = useState(0);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText('karangehlot5686@gmail.com');
@@ -14,9 +15,42 @@ const ContactSection = () => {
     setTimeout(() => setCopiedEmail(false), 2500);
   };
 
+  // Security Helper: Sanitize inputs against HTML/Script injection
+  const sanitizeInput = (str) => {
+    return str.replace(/<[^>]*>?/gm, '').trim();
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
+
+    // Anti-Spam Honeypot Check: If hidden field is filled, silently reject bot
+    if (formData.honeypot) {
+      setSubmitted(true);
+      return;
+    }
+
+    // Rate Limiting Check (Prevent rapid-fire submissions within 10s)
+    const now = Date.now();
+    if (now - lastSubmitTime < 10000) {
+      setErrorMessage('Please wait a few seconds before sending another message.');
+      return;
+    }
+
+    const cleanName = sanitizeInput(formData.name).slice(0, 100);
+    const cleanEmail = sanitizeInput(formData.email).slice(0, 100);
+    const cleanMessage = sanitizeInput(formData.message).slice(0, 3000);
+
+    if (!cleanName || !cleanEmail || !cleanMessage) {
+      setErrorMessage('All fields are required.');
+      return;
+    }
+
+    // Strict Email Format Regex Validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(cleanEmail)) {
+      setErrorMessage('Please enter a valid email address.');
+      return;
+    }
 
     setIsSubmitting(true);
     setErrorMessage('');
@@ -30,11 +64,11 @@ const ContactSection = () => {
         },
         body: JSON.stringify({
           access_key: 'ea858cf5-ab7b-4ac7-aafc-bb4fb7a6ef59',
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          subject: `Portfolio Message from ${formData.name}`,
-          from_name: `${formData.name} (Portfolio)`
+          name: cleanName,
+          email: cleanEmail,
+          message: cleanMessage,
+          subject: `Portfolio Message from ${cleanName}`,
+          from_name: `${cleanName} (Portfolio)`
         })
       });
 
@@ -42,7 +76,8 @@ const ContactSection = () => {
 
       if (result.success) {
         setSubmitted(true);
-        setFormData({ name: '', email: '', message: '' });
+        setLastSubmitTime(Date.now());
+        setFormData({ name: '', email: '', message: '', honeypot: '' });
         setTimeout(() => {
           setSubmitted(false);
         }, 6000);
@@ -193,6 +228,17 @@ const ContactSection = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Anti-Spam Honeypot Field (Hidden from humans) */}
+                <input
+                  type="text"
+                  name="website_url_hp"
+                  tabIndex="-1"
+                  autoComplete="off"
+                  value={formData.honeypot}
+                  onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+                  style={{ display: 'none', opacity: 0, position: 'absolute', left: '-9999px' }}
+                />
+
                 {errorMessage && (
                   <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs flex items-center gap-2">
                     <AlertCircle className="w-4 h-4 shrink-0" />
