@@ -9,9 +9,11 @@ import EducationSection from './components/EducationSection';
 import AchievementsSection from './components/AchievementsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import ResumeModal from './components/ResumeModal';
 
 function App() {
   const [activeSection, setActiveSection] = useState('about');
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-dark-900 text-gray-300 relative selection:bg-gold-500 selection:text-dark-900">
@@ -26,12 +28,12 @@ function App() {
         <div className="flex flex-col lg:flex-row gap-8 items-start">
           {/* Sticky Profile Sidebar */}
           <div className="w-full lg:w-[320px] lg:sticky lg:top-28">
-            <Sidebar />
+            <Sidebar onOpenResume={() => setIsResumeModalOpen(true)} />
           </div>
 
           {/* Main Content Area */}
           <div className="flex-1 w-full space-y-4">
-            <HeroSection />
+            <HeroSection onOpenResume={() => setIsResumeModalOpen(true)} />
             <ProjectSection />
             <SkillsSection />
             <EducationSection />
@@ -40,6 +42,12 @@ function App() {
           </div>
         </div>
       </main>
+
+      {/* CV / Resume Viewer Modal Overlay */}
+      <ResumeModal
+        isOpen={isResumeModalOpen}
+        onClose={() => setIsResumeModalOpen(false)}
+      />
 
       {/* Footer */}
       <Footer />

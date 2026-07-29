@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Code, Send, FileText, Download } from 'lucide-react';
 
-const Sidebar = () => {
+const Sidebar = ({ onOpenResume }) => {
   return (
     <aside className="w-full lg:w-[320px] shrink-0 space-y-6">
       <div className="glass-card rounded-3xl p-6 lg:p-8 text-center relative overflow-hidden group">
@@ -114,15 +114,13 @@ const Sidebar = () => {
 
         {/* Action Buttons */}
         <div className="mt-6 space-y-2.5">
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={onOpenResume}
             className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-gold-500 to-amber-500 hover:from-gold-400 hover:to-amber-400 text-dark-900 font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-gold-500/20 hover:shadow-gold-500/40 transition-all duration-300 cursor-pointer"
           >
             <FileText className="w-4 h-4 text-dark-900" />
-            <span>View Resume (PDF)</span>
-          </a>
+            <span>View CV / Resume</span>
+          </button>
 
           <a
             href="#contact"
