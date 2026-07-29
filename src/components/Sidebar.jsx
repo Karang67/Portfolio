@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Code, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Code, Send, FileText, Download } from 'lucide-react';
 
 const Sidebar = () => {
   return (
@@ -112,13 +112,23 @@ const Sidebar = () => {
           </a>
         </div>
 
-        {/* Action Button */}
-        <div className="mt-6">
+        {/* Action Buttons */}
+        <div className="mt-6 space-y-2.5">
           <a
-            href="#contact"
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-gold-500 to-amber-500 hover:from-gold-400 hover:to-amber-400 text-dark-900 font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-gold-500/20 hover:shadow-gold-500/40 transition-all duration-300 cursor-pointer"
           >
-            <Send className="w-4 h-4 text-dark-900" />
+            <FileText className="w-4 h-4 text-dark-900" />
+            <span>View Resume (PDF)</span>
+          </a>
+
+          <a
+            href="#contact"
+            className="w-full py-2.5 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-gray-300 hover:text-gold-400 border border-gray-700 hover:border-gold-500/50 font-semibold text-xs flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer"
+          >
+            <Send className="w-3.5 h-3.5 text-gold-400" />
             <span>Get In Touch</span>
           </a>
         </div>
