@@ -15,11 +15,20 @@ const ContactSection = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
+
+    const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Hello Karan,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    const mailtoUrl = `mailto:karangehlot5686@gmail.com?subject=${subject}&body=${body}`;
+
+    window.location.href = mailtoUrl;
+
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
       setFormData({ name: '', email: '', message: '' });
-    }, 4000);
+    }, 5000);
   };
 
   return (
@@ -154,8 +163,8 @@ const ContactSection = () => {
                 <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center">
                   <Check className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-white">Message Sent Successfully!</h3>
-                <p className="text-xs text-gray-400">Thank you for reaching out, Karan will get back to you shortly.</p>
+                <h3 className="text-lg font-bold text-white">Opening Email App...</h3>
+                <p className="text-xs text-gray-400">Your default email client has been launched with your message addressed to <b>karangehlot5686@gmail.com</b>.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
