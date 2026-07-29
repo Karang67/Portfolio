@@ -122,22 +122,35 @@ const ProjectModal = ({ project, onClose }) => {
             </div>
 
             {/* Actions */}
-            <div className="pt-4 border-t border-gray-800 flex flex-wrap gap-4 items-center justify-between">
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-dark-900 font-bold text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-gold-500/20 hover:shadow-gold-500/40 transition-all duration-300"
-              >
-                <Github className="w-4 h-4" />
-                <span>View Source Code on GitHub</span>
-              </a>
+            <div className="pt-4 border-t border-gray-800 flex flex-wrap gap-3 items-center justify-between">
+              <div className="flex flex-wrap gap-3 items-center">
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-dark-900 font-extrabold text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-gold-500/20 hover:shadow-gold-500/40 transition-all duration-300"
+                  >
+                    <ExternalLink className="w-4 h-4 text-dark-900" />
+                    <span>Launch Live App</span>
+                  </a>
+                )}
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-3 rounded-xl bg-dark-900 hover:bg-dark-700 text-gray-200 hover:text-gold-400 font-semibold text-xs sm:text-sm border border-gray-700 flex items-center gap-2 transition-all duration-300"
+                >
+                  <Github className="w-4 h-4" />
+                  <span>GitHub Repository</span>
+                </a>
+              </div>
 
               <button
                 onClick={onClose}
                 className="px-5 py-3 rounded-xl bg-dark-900 hover:bg-dark-700 text-gray-400 hover:text-white font-medium text-xs border border-gray-700 transition-all"
               >
-                Close Explanation
+                Close
               </button>
             </div>
           </div>

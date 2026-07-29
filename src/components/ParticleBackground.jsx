@@ -69,10 +69,7 @@ const ParticleBackground = () => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = `${p.color}${p.alpha})`;
-        ctx.shadowBlur = 8;
-        ctx.shadowColor = 'rgba(255, 191, 0, 0.4)';
         ctx.fill();
-        ctx.shadowBlur = 0;
 
         // Connect nearby particles
         for (let j = i + 1; j < particles.length; j++) {

@@ -7,7 +7,7 @@ export const PROJECTS_DATA = [
     badge: "Featured AI Project",
     stars: 1,
     githubUrl: "https://github.com/Karang67/Campusgpt",
-    imageUrl: "./campusgpt.png",
+    imageUrl: "/campusgpt.png",
     shortDesc: "Full-stack AI-powered university assistant built with React 19, TypeScript, Node.js, Express.js, MongoDB, and LangChain (RAG).",
     fullOverview: "CampusGPT is an enterprise AI assistant designed for universities. Powered by LangChain and Retrieval-Augmented Generation (RAG), it delivers instant context-aware answers, PDF document chat, AI notes generation, and automated academic tools with role-based access control.",
     features: [
@@ -26,7 +26,8 @@ export const PROJECTS_DATA = [
     badge: "Featured Fullstack",
     stars: 1,
     githubUrl: "https://github.com/Karang67/Anonhub",
-    imageUrl: "./image.png",
+    liveUrl: "https://anonhub-l0wz.onrender.com/",
+    imageUrl: "/image.png",
     shortDesc: "Real-time collaboration platform featuring AI assistance, live code collaboration, document editing, and whiteboard workspace.",
     fullOverview: "AnonHub is an advanced collaborative workspace built with Node.js, Express.js, MongoDB, and Socket.IO. It combines real-time multi-user communication with Monaco Editor code editing, TinyMCE document processing, Fabric.js canvas whiteboards, and OpenAI AI features.",
     features: [
@@ -45,7 +46,7 @@ export const PROJECTS_DATA = [
     badge: "Odoo Hackathon",
     stars: 0,
     githubUrl: "https://github.com/Karang67/Travel-Management",
-    imageUrl: "./travel_management.png",
+    imageUrl: "/travel_management.png",
     shortDesc: "Full-stack AI travel planning platform built with React 19, TypeScript, Node.js, Express.js, and MongoDB.",
     fullOverview: "TraveLoop (Travel-Management) is a modern full-stack travel planning platform built for corporate travel coordination and trip scheduling. It features interactive UI animations built with Framer Motion, secure JWT authentication, input validation, and file uploads.",
     features: [
@@ -63,7 +64,7 @@ export const PROJECTS_DATA = [
     badge: "Public Repo",
     stars: 0,
     githubUrl: "https://github.com/Karang67/Mega-Blog-",
-    imageUrl: "./mega_blog.png",
+    imageUrl: "/mega_blog.png",
     shortDesc: "A clean, code-friendly blogging platform for developers to share technical guides, stories, and code snippets.",
     fullOverview: "Mega-Blog is a fullstack publishing platform crafted for tech enthusiasts and developers to write and share tutorials, engineering guides, and thoughts in a clean, code-friendly environment.",
     features: [
@@ -81,7 +82,7 @@ export const PROJECTS_DATA = [
     badge: "Public Repo",
     stars: 0,
     githubUrl: "https://github.com/Karang67/Omnifood",
-    imageUrl: "./omnifood.png",
+    imageUrl: "/omnifood.png",
     shortDesc: "Online food delivery web application featuring restaurant listings, interactive menu browsing, cart management, and order tracking.",
     fullOverview: "Omnifood is a modern e-commerce food delivery application featuring restaurant listings, menu filtering, dietary tags (Vegan, Keto, Gluten-Free), dynamic cart price calculators, and order progress tracking.",
     features: [
@@ -99,7 +100,7 @@ export const PROJECTS_DATA = [
     badge: "Public Repo",
     stars: 0,
     githubUrl: "https://github.com/Karang67/Portfolio",
-    imageUrl: "./TraveloopImage.jpg",
+    imageUrl: "/TraveloopImage.jpg",
     shortDesc: "Personal developer portfolio showcasing fullstack applications, interactive project cards, skills grid, and educational journey.",
     fullOverview: "A high-performance, modern developer portfolio built with React 18, Tailwind CSS, Framer Motion, and Canvas Particle graphics. It presents projects, technical skillsets, education background, and contact details with engaging interactive features.",
     features: [

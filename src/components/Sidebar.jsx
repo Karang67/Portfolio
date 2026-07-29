@@ -1,7 +1,7 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Download, Eye, Code } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Code, Send } from 'lucide-react';
 
-const Sidebar = ({ onOpenResume }) => {
+const Sidebar = () => {
   return (
     <aside className="w-full lg:w-[320px] shrink-0 space-y-6">
       <div className="glass-card rounded-3xl p-6 lg:p-8 text-center relative overflow-hidden group">
@@ -12,8 +12,10 @@ const Sidebar = ({ onOpenResume }) => {
         <div className="relative inline-block mx-auto mb-4">
           <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-gradient-to-tr from-gold-500 via-amber-300 to-amber-600 shadow-xl shadow-gold-500/20">
             <img
-              src="./karan-Picsart-AiImageEnhancer-min (2).jpg"
+              src="/karan-Picsart-AiImageEnhancer-min (2).jpg"
               alt="Karan Gehlot"
+              loading="eager"
+              decoding="async"
               className="w-full h-full object-cover rounded-full border-2 border-dark-900"
             />
           </div>
@@ -110,23 +112,15 @@ const Sidebar = ({ onOpenResume }) => {
           </a>
         </div>
 
-        {/* Resume View & Download Action Buttons */}
-        <div className="mt-6 space-y-2">
-          <button
-            onClick={onOpenResume}
+        {/* Action Button */}
+        <div className="mt-6">
+          <a
+            href="#contact"
             className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-gold-500 to-amber-500 hover:from-gold-400 hover:to-amber-400 text-dark-900 font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-gold-500/20 hover:shadow-gold-500/40 transition-all duration-300 cursor-pointer"
           >
-            <Eye className="w-4 h-4 text-dark-900" />
-            <span>View CV / Resume</span>
-          </button>
-
-          <button
-            onClick={onOpenResume}
-            className="w-full py-2.5 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 text-gray-300 hover:text-gold-400 border border-gray-700 hover:border-gold-500/50 font-semibold text-xs flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer"
-          >
-            <Download className="w-3.5 h-3.5 text-gold-400" />
-            <span>Download CV (PDF)</span>
-          </button>
+            <Send className="w-4 h-4 text-dark-900" />
+            <span>Get In Touch</span>
+          </a>
         </div>
       </div>
     </aside>

@@ -1,14 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Code2, Rocket, ArrowRight, ShieldCheck, FolderGit2, Cpu, Eye, FileText } from 'lucide-react';
+import { Sparkles, Code2, ArrowRight, ShieldCheck, FolderGit2, Cpu, Send } from 'lucide-react';
 
-const HeroSection = ({ onOpenResume }) => {
+const HeroSection = () => {
   return (
     <section id="about" className="relative pt-6 pb-10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.5 }}
         className="glass-card rounded-3xl p-6 sm:p-10 relative overflow-hidden"
       >
         {/* Glow ambient background element */}
@@ -72,20 +72,20 @@ const HeroSection = ({ onOpenResume }) => {
 
         {/* CTA Buttons */}
         <div className="flex flex-wrap gap-4">
-          <button
-            onClick={onOpenResume}
-            className="px-6 py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-dark-900 font-bold text-sm flex items-center gap-2 shadow-lg shadow-gold-500/25 hover:shadow-gold-500/40 transition-all duration-300 cursor-pointer"
-          >
-            <Eye className="w-4 h-4 text-dark-900" />
-            <span>View & Download CV</span>
-          </button>
-
           <a
             href="#portfolio"
-            className="px-6 py-3 rounded-xl bg-dark-800 hover:bg-dark-700 text-white font-semibold text-sm border border-gray-700 hover:border-gold-500/50 transition-all duration-300 flex items-center gap-2"
+            className="px-6 py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-dark-900 font-bold text-sm flex items-center gap-2 shadow-lg shadow-gold-500/25 hover:shadow-gold-500/40 transition-all duration-300 cursor-pointer"
           >
             <span>Explore Projects</span>
-            <ArrowRight className="w-4 h-4 text-gold-400" />
+            <ArrowRight className="w-4 h-4 text-dark-900" />
+          </a>
+
+          <a
+            href="#contact"
+            className="px-6 py-3 rounded-xl bg-dark-800 hover:bg-dark-700 text-white font-semibold text-sm border border-gray-700 hover:border-gold-500/50 transition-all duration-300 flex items-center gap-2"
+          >
+            <Send className="w-4 h-4 text-gold-400" />
+            <span>Get In Touch</span>
           </a>
         </div>
       </motion.div>
