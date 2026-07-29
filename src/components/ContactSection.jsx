@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Check, Copy, MessageSquare, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Check, Copy, MessageSquare, Linkedin, Twitter, Loader2, AlertCircle } from 'lucide-react';
 
 const ContactSection = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const handleCopyEmail = () => {
@@ -12,23 +14,46 @@ const ContactSection = () => {
     setTimeout(() => setCopiedEmail(false), 2500);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Hello Karan,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
-    const mailtoUrl = `mailto:karangehlot5686@gmail.com?subject=${subject}&body=${body}`;
+    setIsSubmitting(true);
+    setErrorMessage('');
 
-    window.location.href = mailtoUrl;
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: 'ea858cf5-ab7b-4ac7-aafc-bb4fb7a6ef59',
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Portfolio Message from ${formData.name}`,
+          from_name: `${formData.name} (Portfolio)`
+        })
+      });
 
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 5000);
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 6000);
+      } else {
+        setErrorMessage(result.message || 'Failed to send message. Please try again.');
+      }
+    } catch (err) {
+      setErrorMessage('Network error. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -163,11 +188,18 @@ const ContactSection = () => {
                 <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center">
                   <Check className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-white">Opening Email App...</h3>
-                <p className="text-xs text-gray-400">Your default email client has been launched with your message addressed to <b>karangehlot5686@gmail.com</b>.</p>
+                <h3 className="text-lg font-bold text-white">Message Delivered Directly!</h3>
+                <p className="text-xs text-gray-400">Thank you for reaching out. Your message has been sent directly to <b>karangehlot5686@gmail.com</b> and Karan will get back to you shortly.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {errorMessage && (
+                  <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 shrink-0" />
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
+
                 <div>
                   <label className="block text-xs font-semibold text-gray-400 mb-1">Your Name</label>
                   <input
@@ -206,10 +238,20 @@ const ContactSection = () => {
 
                 <button
                   type="submit"
-                  className="w-full py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-dark-900 font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-gold-500/20 transition-all"
+                  disabled={isSubmitting}
+                  className="w-full py-3 rounded-xl bg-gold-500 hover:bg-gold-400 disabled:opacity-50 text-dark-900 font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-gold-500/20 transition-all cursor-pointer"
                 >
-                  <Send className="w-4 h-4" />
-                  <span>Send Direct Message</span>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 text-dark-900 animate-spin" />
+                      <span>Sending Message...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      <span>Send Direct Message</span>
+                    </>
+                  )}
                 </button>
               </form>
             )}
